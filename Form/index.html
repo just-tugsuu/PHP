@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href = "style.css" /> 
+  
+    <title>Form</title>
+</head>
+<body>
+   <div class = "container"> 
+       <div class = "container_top"> <p>Утга хөрвүүлэх</p> </div>
+       <div class = "container_middle"> 
+           <form>
+               <div class = "row">
+                <div class="col-sm">
+                    <label for="email">Хувиргах утга:</label>
+                    <input type="email" class="form-control" id="email">
+                    <p> Нэгжийн утга</p>
+                </div>
+                <div class="col-sm">
+                    <label for="email">Хувиргах төрөл</label>
+                    <select class="form-select" aria-label="Default select example">
+                        <option value="-сонго-">-сонго-</option>
+                        <option value="Инч-СМ">Инч-СМ</option>
+                        <option value="Бээр-КМ">Бээр-КМ</option>
+                        <option value="Паунд-ГРАМ">Паунд-ГРАМ</option>
+                        <option value="Морины хүч-ВАТТ">Морины хүч-Ватт</option>
+                      </select>
+                </div>
+               </div> 
+           </form>
+       </div>
+       <div class = "container_bottom"> 
+        <div class = 'buttons'>
+            <button type="button" class="btn btn-primary">Хувиргах</button>
+            <button type="button" class="btn btn-light">Цуцлах</button>
+          </div>
+       </div>
+   </div>
+
+  
+</body>
+
+</html>
