@@ -76,9 +76,16 @@ body{
     margin-left: 1rem;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 575px) {
     .form-select > option{
         font-size: 0.8rem;
     }
+    .col-sm{
+        padding-top: 0.3em;
+    }
+    .container_middle{
+        padding-bottom: 1rem;
+    }
+    
   }
 

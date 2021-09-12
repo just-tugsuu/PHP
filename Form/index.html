@@ -11,17 +11,17 @@
 </head>
 <body>
    <div class = "container"> 
+    <form action="server.php" method="post">
        <div class = "container_top"> <p>Утга хөрвүүлэх</p> </div>
        <div class = "container_middle"> 
-           <form>
                <div class = "row">
                 <div class="col-sm">
                     <label for="email">Хувиргах утга:</label>
-                    <input type="email" class="form-control" id="email">
-                    <p> Нэгжийн утга</p>
+                    <input type="text" name = "value" value = ""class="form-control">
+                    <p> Нэгжийн утга: <span> 76.10</span></p>
                 </div>
                 <div class="col-sm">
-                    <label for="email">Хувиргах төрөл</label>
+                    <label for="text">Хувиргах төрөл</label>
                     <select class="form-select" aria-label="Default select example">
                         <option value="-сонго-">-сонго-</option>
                         <option value="Инч-СМ">Инч-СМ</option>
@@ -31,14 +31,14 @@
                       </select>
                 </div>
                </div> 
-           </form>
        </div>
        <div class = "container_bottom"> 
         <div class = 'buttons'>
-            <button type="button" class="btn btn-primary">Хувиргах</button>
-            <button type="button" class="btn btn-light">Цуцлах</button>
+            <input type="submit" value = 'Хувиргах'class="btn btn-primary">
+            <input type="reset" value = 'Цуцлах'class="btn btn-light">
           </div>
        </div>
+    </form>
    </div>
 
   
