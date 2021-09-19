@@ -5,20 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href = "style.css" /> 
+    <link rel="stylesheet" href = "./style.css" /> 
   
     <title>Form</title>
 </head>
 <body>
    <div class = "container"> 
-    <form action="server.php" method="post">
-       <div class = "container_top"> <p>Утга хөрвүүлэх</p> </div>
+    <form  method="post">
+       <div class = "container_top"> <p>Утг а хөрвүүлэх</p> </div>
        <div class = "container_middle"> 
                <div class = "row">
                 <div class="col-sm">
-                    <label for="email">Хувиргах утга:</label>
-                    <input type="text" name = "value" value = ""class="form-control">
-                    <p> Нэгжийн утга: <span> 76.10</span></p>
+                    <label for="text">Хувиргах утга:</label>
+                    <input type="text" name = "value"class="form-control">
                 </div>
                 <div class="col-sm">
                     <label for="text">Хувиргах төрөл</label>
@@ -31,6 +30,12 @@
                       </select>
                 </div>
                </div> 
+               <div class = "row">
+                   <div class = "col-sm">
+                    <label for = "text"> <span> Нэгжийн утга </span></label>
+                    <input type="text" name = "output" class="form-control" id = "disabledInput" disabled>
+                   </div>
+               </div>
        </div>
        <div class = "container_bottom"> 
         <div class = 'buttons'>

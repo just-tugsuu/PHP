@@ -57,9 +57,8 @@ body{
     border-radius: 10px;
 }
 
-.col-sm > p {
-    margin-top: 0.3rem;
-    font-size: 0.8rem;
+.col-sm label > span {
+    margin-top: 0.2rem;
     color: #77757F;
 }
 
@@ -75,6 +74,7 @@ body{
 .btn-light{
     margin-left: 1rem;
 }
+
 
 @media only screen and (max-width: 575px) {
     .form-select > option{
