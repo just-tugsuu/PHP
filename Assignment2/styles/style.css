@@ -1,0 +1,58 @@
+html {
+    box-sizing: border-box;
+}
+
+*, 
+*:before, 
+*:after {
+  box-sizing: inherit;
+}
+
+body{
+    font-family: 'Roboto Condensed', sans-serif, Arial;
+    color: #373a3c;
+}
+
+.form-control:focus {
+    box-shadow: unset;
+   
+}
+
+.form {
+    margin-top: 2rem;
+}
+
+.mb-3 label{
+    font-size: 1rem;
+}
+
+.title h3{
+    text-align: center;
+}
+
+.outer_container{
+    width: 50%;
+    margin: 2rem auto;
+    padding-top: 1em;
+    padding-bottom: 2em;
+}
+
+.mb-3 > button{
+    margin-top: 1rem;
+    width: 100%;
+}
+.paragraph{
+    padding-top: 1rem;
+}
+
+
+
+
+@media only screen and (min-width: 1200px) {
+    .mb-3 label{
+        font-size: 1.2em;
+    }
+    .outer_container {
+        width: 40%;
+    }
+}
