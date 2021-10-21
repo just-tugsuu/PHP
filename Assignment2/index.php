@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
-    <title>User authencation</title>
+    <title>Login</title>
 </head>
 
 <body>
@@ -35,7 +35,7 @@
             </div>
             <div class="mb-3">
             <button type="button" class="btn btn-outline-primary">Нэвтрэх</button>
-            <p class = "paragraph">Бүртгэл үүсгээгүй бол <span style ="color:#0d6efd"><a href ="#" style="text-decoration: none;">бүртгүүлэх</a></span> дарна уу.</p>
+            <p class = "paragraph">Бүртгэл үүсгээгүй бол <span style ="color:#0d6efd"><a href ="./src/register.php" style="text-decoration: none;">бүртгүүлэх</a></span> дарна уу.</p>
             </div>
         </form>
     </div>
