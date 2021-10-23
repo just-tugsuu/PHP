@@ -13,3 +13,7 @@ CREATE TABLE comment (
     inserteddate datetime,
     email varchar(50) 
 );
+
+-- Test input
+
+INSERT INTO employee VALUES(NULL, 'Tugsuu', 'admin123@gmail.com', MD5('admin-123'));

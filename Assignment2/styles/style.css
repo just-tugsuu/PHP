@@ -37,12 +37,13 @@ body{
     padding-bottom: 2em;
 }
 
-.mb-3 > button{
-    margin-top: 1rem;
-    width: 100%;
-}
 .paragraph{
     padding-top: 1rem;
+}
+
+.smb{
+    width: 100%;
+    margin-top: 2rem;
 }
 
 
