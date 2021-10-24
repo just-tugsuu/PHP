@@ -1,8 +1,15 @@
 <?php 
+    session_start();
+    if(isset($_SESSION['logged_in']) && $_SESSION["logged_in"] === true) {
+        header('location: ./src/description.php');
+        exit;
+    }
+    // also add try catch block
     require './configs/config.php';
     $username_err = $password_err = '';
     $username = $password = '';
-        //Back-end authcantion
+
+    //Back-end authcantion
     if (isset($_POST['submit']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
         $username_err = $_POST['username'] ? null : 'Хэрэглэгчийн нэр оруулана уу';
         $password_err = $_POST['password'] ? null : 'Нууц үг оруулана уу';
@@ -11,9 +18,37 @@
             // escapes string when double quation exists and special character
             $username = htmlspecialchars($mysql_db->real_escape_string(trim($_POST['username'])));
             $password = htmlspecialchars($mysql_db->real_escape_string(trim($_POST['password'])));
-            // validate user -> work with Ajax 
-            
-
+            // validate user -> Using mysql_bind
+            $sql = 'SELECT employeeid, name, email, pass FROM employee WHERE email = ?';
+            if($stmt = $mysql_db->prepare($sql)) {
+                // add try catch block...
+                $bind_username = $username;
+                // echo $bind_username;
+                $stmt->bind_param('s', $bind_username);
+                $stmt->execute();
+                $stmt->store_result();
+                if($stmt->num_rows() === 1) {
+                    $stmt->bind_result($id, $employee_name, $employee_email, $hash);
+                    if($stmt->fetch()) {
+                        if(md5($password) === $hash) {
+                            // session_start();
+                            $_SESSION['id'] = $id;
+                            $_SESSION['email'] = $employee_email;
+                            $_SESSION['username'] = $employee_name;
+                            $_SESSION['logged_in'] = true;
+                            header('location: ./src/description.php');
+                        }
+                        else {
+                            $password_err = 'Нууц үг буруу байна';
+                        }
+                    }
+                }
+                else {
+                   $password_err = 'Нэвтрэх эрхгүй хэрэглэгч';
+                }
+                $stmt->close();
+            }
+            $mysql_db->close();
         }
     }
 ?>
@@ -26,7 +61,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" type="text/css" href="./styles/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
