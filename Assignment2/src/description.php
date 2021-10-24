@@ -1,6 +1,7 @@
 <?php 
     session_start();
     include './helper/function.php';
+    require '../configs/config.php';
     Redirect();
 ?>
 
@@ -20,23 +21,26 @@
 </head> 
 <body>
     <div class = "container-sm">
-       <form>
+       <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
        <div class = "box-description">
         <h3 class ="header"> Форм баталгаажуулалт</h3>
         <p>Хэрхэн login form дээр нэвтэрсэн хүмүүсийн мэдээллийг cookie дотор хадгалах уу ? тэгэхээр дараагийн удаа нэвтэрхэд хэрэглэгчийн мэдээлэл бөглөгдсөн байна.</p>
        </div>
        <div class = "text-area">
-       <textarea class="form-control"  placeholder = "Та сэтгэгдэлээ бичнэ үү"  maxlength="450" ></textarea>
+       <textarea class="form-control" placeholder = "Та сэтгэгдэлээ бичнэ үү"  maxlength="200" name = "comment"></textarea>
        <input name = "submit" type="submit" class="btn btn-primary" value = "Илгээх">
-       
        </div>
-       
        </form>
     </div>
-    <?php 
-    
-   
+    <div class = "comment-section">
+        
+    </div>
 
-    ?>
 </body>
 </html>
+
+<?php 
+       if(isset($_POST['submit'])) {
+        InsertData($mysql_db, $_POST['comment'], $_SESSION['email']);
+       }
+?>
