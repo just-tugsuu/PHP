@@ -5,6 +5,12 @@ function Redirect() {
         header('location: ../index.php');
         exit;
     }
+}
+
+function logout() {
+    session_destroy();
+    header('location: ../index.php');
+}
 
 function InsertData($mysql, $user_description, $email) {
     $description = htmlspecialchars($mysql->real_escape_string(trim($user_description)));
@@ -25,4 +31,17 @@ function InsertData($mysql, $user_description, $email) {
 }
 }
 
+
+function fetchComments($mysql) {
+    $sql = 'SELECT commentid, description, inserteddate FROM comment;';
+    if($result = $mysql->query($sql)) {
+        if($result->num_rows > 0) {
+            // fetch data;
+        }
+    }
+
+}
+
+function showComments() {
+    echo '<h4>Сэтгэгдэл</h4>';
 }

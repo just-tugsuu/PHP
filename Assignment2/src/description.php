@@ -23,17 +23,20 @@
     <div class = "container-sm">
        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
        <div class = "box-description">
-        <h3 class ="header"> Форм баталгаажуулалт</h3>
-        <p>Хэрхэн login form дээр нэвтэрсэн хүмүүсийн мэдээллийг cookie дотор хадгалах уу ? тэгэхээр дараагийн удаа нэвтэрхэд хэрэглэгчийн мэдээлэл бөглөгдсөн байна.</p>
+        <h4 class ="header"> Форм баталгаажуулалт</h4>
        </div>
        <div class = "text-area">
        <textarea class="form-control" placeholder = "Та сэтгэгдэлээ бичнэ үү"  maxlength="200" name = "comment"></textarea>
-       <input name = "submit" type="submit" class="btn btn-primary" value = "Илгээх">
+       <div class = "buttons">
+            <input name = "submit" type="submit" class="btn btn-primary" value = "Илгээх">
+            <input name = "logout" type="submit" class="btn btn-light logout" value = "Гарах">
+       </div>
        </div>
        </form>
     </div>
     <div class = "comment-section">
         
+
     </div>
 
 </body>
@@ -41,6 +44,9 @@
 
 <?php 
        if(isset($_POST['submit'])) {
-        InsertData($mysql_db, $_POST['comment'], $_SESSION['email']);
+        InsertData($mysql_db, $_POST['comment'], $_SESSION['user']['email']);
+       }
+       if(isset($_POST['logout'])) {
+           logout();
        }
 ?>

@@ -32,10 +32,20 @@
                     if($stmt->fetch()) {
                         if(md5($password) === $hash) {
                             // session_start();
-                            $_SESSION['id'] = $id;
-                            $_SESSION['email'] = $employee_email;
-                            $_SESSION['username'] = $employee_name;
+                            $_SESSION['user'] = array(
+                                'id' => $id,
+                                'email' =>  $employee_email,
+                                'username' => $employee_name,
+                            );  
                             $_SESSION['logged_in'] = true;
+                            if(isset($_POST['checkbox']) && $_POST['checkbox'] === 'checked') {
+                                setcookie("username", $username, time() + (60*60*24*7));
+                                setcookie("password", $password, time() + (60*60*24*7));
+                            }
+                            else {
+                                setcookie("username","");
+                                setcookie("password","");
+                            }
                             header('location: ./src/description.php');
                         }
                         else {
@@ -76,16 +86,16 @@
         <form action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method = "POST" class = "form">
             <div class="mb-3">
                 <label for="text" class="form-label">И-мейл</label>
-                <input type="text" class="form-control" name = "username">
+                <input type="text" class="form-control" name = "username" value = "<?php if(isset($_COOKIE['username'])) { echo $_COOKIE['username']; }?>">
                 <span class="block" style="color: #ff0033"><?php echo $username_err;?></span>
             </div>
             <div class="mb-3">
                 <label for="text" class="form-label">Нууц үг</label>
-                <input type="password" class="form-control" name = "password">
+                <input type="password" class="form-control" name = "password" value = "<?php if(isset($_COOKIE['password'])) { echo $_COOKIE['password']; }?>">
                 <span class="block" style="color: #ff0033"><?php echo $password_err;?></span>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+                <input class="form-check-input" type="checkbox" name = "checkbox" value="checked" id="flexCheckIndeterminate">
                 <label class="form-check-label" for="flexCheckIndeterminate">
                     Сануулах
                 </label>
