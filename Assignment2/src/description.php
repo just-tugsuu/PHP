@@ -1,10 +1,9 @@
 <?php 
     session_start();
-    include './helper/function.php';
     require '../configs/config.php';
+    include './helper/function.php';
     Redirect();
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -34,19 +33,18 @@
        </div>
        </form>
     </div>
-    <div class = "comment-section">
-        
-
-    </div>
-
-</body>
-</html>
-
-<?php 
-       if(isset($_POST['submit'])) {
-        InsertData($mysql_db, $_POST['comment'], $_SESSION['user']['email']);
+    <?php 
+       if($_SERVER['REQUEST_METHOD'] === 'GET' ||$_SERVER['REQUEST_METHOD'] === 'POST') {
+          if(isset($_POST['submit'])) {
+            InsertData($mysql_db, $_POST['comment'], $_SESSION['user']['email']);
+          }
+          showComments($mysql_db);
        }
        if(isset($_POST['logout'])) {
            logout();
        }
+      
 ?>
+</body> 
+</html>
+

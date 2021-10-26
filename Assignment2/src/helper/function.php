@@ -24,7 +24,7 @@ function InsertData($mysql, $user_description, $email) {
        else {
            echo 'shit it\'s failed';
        }
-
+       
     }
 } catch(Exception $e) {
     echo 'Something unexpected happen: ' . $e->getMessage(), "\n";
@@ -32,16 +32,50 @@ function InsertData($mysql, $user_description, $email) {
 }
 
 
+function emptyTable() {
+    echo'<div class = "comment-section">';
+    echo '<table class = "table table-hover>" 
+          <thead>
+                 <tr>
+                    <th colspan = "2"scope="col">Сэтгэгдэл</th>
+                 </tr>
+          </thead>
+                 <tbody>';
+    echo '</tbody>
+         </table>'; 
+    echo '</div>';
+}
+
 function fetchComments($mysql) {
-    $sql = 'SELECT commentid, description, inserteddate FROM comment;';
+    $sql = 'SELECT description, inserteddate FROM comment;';
     if($result = $mysql->query($sql)) {
         if($result->num_rows > 0) {
             // fetch data;
+            while($row = $result->fetch_array()) {
+                echo '<tr>';
+                echo '<td>' .$row['description'] . '</td>';
+                echo '<td>' .$row['inserteddate'] . '</td>';
+                echo '</tr>';
+            }
+        }
+        else {
+         echo '';
         }
     }
-
+    $result->free_result();
 }
 
-function showComments() {
-    echo '<h4>Сэтгэгдэл</h4>';
+function showComments($mysql) {
+    echo'<div class = "comment-section">';
+    echo '<table class = "table table-hover>" 
+          <thead>
+                 <tr>
+                    <th colspan = "2"scope="col">Сэтгэгдэл</th>
+                 </tr>
+          </thead>
+                 <tbody>';
+    fetchComments($mysql);
+    echo '</tbody>
+         </table>'; 
+    echo '</div>';
 }
