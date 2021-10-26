@@ -42,10 +42,6 @@
                                 setcookie("username", $username, time() + (60*60*24*7));
                                 setcookie("password", $password, time() + (60*60*24*7));
                             }
-                            else {
-                                setcookie("username","");
-                                setcookie("password","");
-                            }
                             header('location: ./src/description.php');
                         }
                         else {
@@ -75,7 +71,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
-    <title>Login</title>
+    <title>Нэвтрэх</title>
 </head>
 
 <body>
@@ -83,7 +79,7 @@
         <div class="title">
             <h3>Системд нэвтрэх</h3>
         </div>
-        <form action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method = "POST" class = "form">
+        <form name = "login_form" action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method = "POST" class = "form" onsubmit="return validateForm()">
             <div class="mb-3">
                 <label for="text" class="form-label">И-мейл</label>
                 <input type="text" class="form-control" name = "username" value = "<?php if(isset($_COOKIE['username'])) { echo $_COOKIE['username']; }?>">
@@ -101,7 +97,7 @@
                 </label>
             </div>
             <div class="mb-3">
-            <input name = "submit" type="submit" class="btn btn-outline-primary smb" value = "Нэвтрэх">
+            <input name = "submit" type="submit" class="btn btn-outline-primary smb" value = "Нэвтрэх" >
             <p class = "paragraph">Бүртгэл үүсгээгүй бол <span style ="color:#0d6efd"><a href ="./src/register.php" style="text-decoration: none;">бүртгүүлэх</a></span> дарна уу.</p>
             </div>
         </form>

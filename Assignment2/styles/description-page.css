@@ -70,6 +70,9 @@ textarea {
   .box-description {
     font-size: 1rem;
   }
+  .comment-section {
+    width: 80%;
+  }
   
 }
 
