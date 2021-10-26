@@ -19,10 +19,10 @@ function InsertData($mysql, $user_description, $email) {
     if($stmt = $mysql->prepare($sql)) {
         $stmt->bind_param('ss', $description, $email);
        if($stmt->execute()) {
-           // show user notifcation here ...
+          // амжилттай нэмэгдлээ гэсэн мэдэгдэл явуулах ? ... 
        }
        else {
-           echo 'shit it\'s failed';
+           echo 'Something went wrong at inserting value to the comment table';
        }
        
     }
