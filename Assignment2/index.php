@@ -16,8 +16,8 @@
         // is not 
         if($username_err === null && $password_err === null) {
             // escapes string when double quation exists and special character
-            $username = htmlspecialchars($mysql_db->real_escape_string(trim($_POST['username'])));
-            $password = htmlspecialchars($mysql_db->real_escape_string(trim($_POST['password'])));
+            $username = $mysql_db->real_escape_string(trim($_POST['username']));
+            $password = $mysql_db->real_escape_string(trim($_POST['password']));
             // validate user -> Using mysql_bind
             $sql = 'SELECT employeeid, name, email, pass FROM employee WHERE email = ?';
             if($stmt = $mysql_db->prepare($sql)) {
@@ -102,7 +102,7 @@
             </div>
         </form>
     </div>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> -->
+
     <script src = "./script/index.js"></script>
 </body>
 
