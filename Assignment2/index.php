@@ -1,37 +1,55 @@
 <?php 
+    /*  
+        session-г эхлүүлэх бөгөөд хэрэглэгч нь нэвтэрсэн тохиолдолд 
+        description.php руу шилжүүлэх болно. 
+    */
     session_start();
     if(isset($_SESSION['logged_in']) && $_SESSION["logged_in"] === true) {
         header('location: ./src/description.php');
         exit;
     }
-    // also add try catch block
+    /*   
+        config.php файлыг дуудаж ажиллуулах бөгөөд ингэснээр тухайн файлын 
+        функц болон хувьсагч руу нь хандах боломжтой
+    */
     require './configs/config.php';
     $username_err = $password_err = '';
     $username = $password = '';
 
-    //Back-end authcantion
+    /*   
+        сервер хүсэлт илгээх үед боловсруулж хэрэглэгчийн мэдээллийг шалгана.
+    */
     if (isset($_POST['submit']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
+        /* 
+            Хэрэглэгчийн нэр эсвэл нууц үг хоосон тохиолдолд алдааны мэдээллийг харуулана
+            үгүй бол хувьсагчид null утга олгоно.
+        */
         $username_err = $_POST['username'] ? null : 'Хэрэглэгчийн нэр оруулана уу';
         $password_err = $_POST['password'] ? null : 'Нууц үг оруулана уу';
-        // is not 
+      
         if($username_err === null && $password_err === null) {
-            // escapes string when double quation exists and special character
+            /* 
+                Орж ирсэн утгын хоосон зайг устгах ба sql injection халдлагаас хамгаалж
+                тусгай тэмдэг болох (\n, \r, \, ', ") зэрэгийг устгана.
+            */
             $username = $mysql_db->real_escape_string(trim($_POST['username']));
             $password = $mysql_db->real_escape_string(trim($_POST['password']));
-            // validate user -> Using mysql_bind
+            /* 
+                query template үүсгэх ба username, болон password - ийг bind хийж өгнө.
+                ингэснээр sql injection халдлагаас сэргийлэх бөгөөд зөвхөн оролтыг өгөгдлийг дамжуулана.
+            */
             $sql = 'SELECT employeeid, name, email, pass FROM employee WHERE email = ?';
             if($stmt = $mysql_db->prepare($sql)) {
-                // add try catch block...
                 $bind_username = $username;
-                // echo $bind_username;
                 $stmt->bind_param('s', $bind_username);
                 $stmt->execute();
                 $stmt->store_result();
                 if($stmt->num_rows() === 1) {
+                    // Хүснэгтээс гарч ирсэн утгуудыг хувьсагчтай bind хийх ба fetch функцийг дуудан утгуудыг олгоно.
                     $stmt->bind_result($id, $employee_name, $employee_email, $hash);
                     if($stmt->fetch()) {
+                        // хэрэглэгчийн password - ийг MD5 хэлбэрээр хэшилэж, хэрэглэгчийн нууц үгийг шалгана
                         if(md5($password) === $hash) {
-                            // session_start();
                             $_SESSION['user'] = array(
                                 'id' => $id,
                                 'email' =>  $employee_email,
@@ -98,7 +116,7 @@
             </div>
             <div class="mb-3">
             <input name = "submit" type="submit" class="btn btn-outline-primary smb" value = "Нэвтрэх" >
-            <p class = "paragraph">Бүртгэл үүсгээгүй бол <span style ="color:#0d6efd"><a href ="./src/register.php" style="text-decoration: none;">бүртгүүлэх</a></span> дарна уу.</p>
+            <p class = "paragraph">Бүртгэл үүсгээгүй бол <span style ="color:#0d6efd">бүртгүүлэх</span> дарна уу.</p>
             </div>
         </form>
     </div>

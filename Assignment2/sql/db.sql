@@ -1,5 +1,3 @@
-CREATE DATABASE IT301;
-
 CREATE TABLE employee (
     employeeid int PRIMARY KEY AUTO_INCREMENT,
     name varchar(20) NOT NULL,
