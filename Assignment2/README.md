@@ -65,3 +65,4 @@ CREATE TABLE comment (
 - [x] comment хуудас нь сэтгэгдэл оруулах хэсэгтэй ба бүх сэтгэгдлийг харах
 
 - [x] XSS халдлагаас хамгаалах `htmlspecialchars()`
+

@@ -53,7 +53,6 @@
                             $_SESSION['user'] = array(
                                 'id' => $id,
                                 'email' =>  $employee_email,
-                                'username' => $employee_name,
                             );  
                             $_SESSION['logged_in'] = true;
                             if(isset($_POST['checkbox']) && $_POST['checkbox'] === 'checked') {
