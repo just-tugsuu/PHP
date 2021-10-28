@@ -13,18 +13,101 @@ html {
 
 body, input {
     font-family: 'Hind', sans-serif;
+    color: white;
+}   
+
+body {
+    background-color: #202124;
 }
 
-body, input {
-	color: #171717;
+.outer {
+    display: table;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+  
+.middle {
+    display: table-cell;
+    vertical-align: middle;
+}
+  
+.inner {
+    margin: 0 auto;
+    width: 90%;
+}
+.inner > .checkboxs{
+      display: flex;
+      justify-content: center;
+}   
+
+.form-check {
+      padding-bottom: 1rem;
+      padding-right: 1rem;
+
+}
+/* add box shadow */
+
+.mb-3 input {
+    border: 1px solid white;
+    background-color: #202124;
+    border-radius: 35px;
+    padding: 0.7em;
+    color: white;
 }
 
-.container {
-    margin: auto;
-    max-width: 30em;
-    /* max-width: 30em;
-    justify-content: center;
-    padding: 1.5em; */
+.mb-3 input:hover{
+    background-color: #303134;
+    border: 1px solid #303134;
 }
+
+.mb-3 input:focus {
+    background-color: #303134;
+    border: 1px solid #303134;
+}
+
+.form-control:focus {
+    box-shadow: unset;
+    border-color: unset;
+    color: white;
+}
+
+.result {
+    position: absolute;
+    width: 90%;
+}
+
+.list-group-item {
+    color: white;
+    background-color: #202124;
+    border: 1px solid #303134;
+    
+}
+
+@media only screen and (min-width: 600px){
+    .inner {
+        width: 70%;
+    }
+    .result {
+        width: 70%;
+    }
+}
+
+@media only screen and (min-width: 1024px){
+    .inner {
+        width: 40%;
+    }
+    .result {
+        width: 40%;
+    }
+    
+}
+
+
+
+
+
 
 

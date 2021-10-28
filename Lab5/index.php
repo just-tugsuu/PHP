@@ -15,21 +15,36 @@
 
 <body>
     <!-- action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" class="search-bar" method = "POST" -->
-    <!-- <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Petname">
-            <label class="form-check-label" for="inlineRadio1">Pet name</label>
+    <form class="outer">
+        <div class="middle">
+            <div class="inner">
+                <div class="checkboxs">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Petname">
+                        <label class="form-check-label" for="inlineRadio1">Pet name</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Owner">
+                        <label class="form-check-label" for="inlineRadio2">Owner</label>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" id = "searchBar"name="">
+                    <br> <br>
+                    <div class = "result">
+                    <ul class="list-group list-group-flush">
+                         <!-- <li class="list-group-item">An item</li>
+                         <li class="list-group-item">A second item</li>
+                         <li class="list-group-item">A third item</li> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Owner">
-            <label class="form-check-label" for="inlineRadio2">Owner</label>
-        </div> -->
-    <form class="container">
-     
-        <div class="search-bar">
-            
         </div>
-        </div>
+        
     </form>
+    <script src = "./scripts/index.js"></script> 
 </body>
 
 </html>
