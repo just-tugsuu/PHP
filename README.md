@@ -19,6 +19,6 @@
 ![Laravel](https://img.shields.io/static/v1?style=for-the-badge&message=Laravel&color=FF2D20&logo=Laravel&logoColor=FFFFFF&label=)
 </div>
 
+
 <!--START_SECTION:waka-->
 <!--END_SECTION:waka-->
-
