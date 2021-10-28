@@ -8,11 +8,10 @@
     <title>Хайлт</title>
 </head>
 <body>
-   <form action="" class="search-bar">
-	<input type="search" name="search" pattern=".*\S.*" required>
-	<button class="search-btn" type="submit">
-		<span>Search</span>
-	</button>
+
+   <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" class="search-bar" method = "POST">
+   
+    </div>
 </form>
 </body>
 </html>
