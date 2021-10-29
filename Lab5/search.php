@@ -1,24 +1,51 @@
 <?php
 require './config/config.php';
+// B190920004 github repo: https://github.com/just-tugsuu/Winter-class/tree/Dev 
+
+// code nii tailbar hiih gej baigaad amjsangue ee bagshaa uuchlaarai 
+// daraagiin labuudaa tsagt ni hiigeed yvna aa 😭 😭 
 if (isset($_REQUEST['name'])) {
     $search_item = $mysql_db->real_escape_string(trim($_REQUEST["name"]));
-    if(strlen($search_item) > 0) {
-        $result = $mysql_db->query("CALL searchPet('$search_item')");
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                echo $row["name"] . " ";
-                echo $row["owner"] . "<br>";
-            }
-        }
-        else {
-            echo 'Nou result found u know'; 
-        }
-    } else {
-        echo ' ';
-    } 
+    $checkbox = $_REQUEST["checkbox"];
+    switch($checkbox) {
+        case 'petname':
+            search($mysql_db, $search_item, 'name');
+            break;
+        case 'owner':
+            search($mysql_db, $search_item, 'owner');
+            break;
+    }
     $mysql_db->close();
 }
 
-// oroltiin utga hooson baih ym bol umnu ni echo hiisen yma tseverlene.. 
-// herev checkbox bolon oroltiin utga baival uur punkts duudagdan ajilna..
+function search($mysql, $item, $search) {
+    if(strlen($item) > 0) {
+        $sql = "SELECT * FROM pet WHERE $search LIKE CONCAT('%', '$item', '%');";
+        $result = $mysql->query($sql);
+        if($search === 'name') {
+            if($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {
+                    echo "<li class='list-group-item'>" .$row["name"] ."  " . $row["owner"] . "</li>";
+                }
+            }
+            else {
+                echo "I couldn't search anything ";
+            }
+        }
+        else {
+            if($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {
+                    echo "<li class='list-group-item'>" .$row["name"] ."  " . $row["owner"] . "</li>";
+                }
+            }
+            else {
+                echo "I couldn't search anything ";
+            }
+        }
+    }
+    else{
+        echo ' ';
+    }
+}
+
 ?>
