@@ -6,7 +6,7 @@ function search(value) {
             document.getElementById("data").innerHTML = AjaxRequest.responseText;
         }
     }
-    
+    // let checkbox = document.getElementById("check").value;
     AjaxRequest.open("GET", "search.php?name=" + value, true);
     AjaxRequest.send();
 }
