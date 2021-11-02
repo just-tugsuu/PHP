@@ -29,14 +29,7 @@ html {
 }
 
 .message {
-    margin-bottom: 0.5rem;
-}
-
-.notification{
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 1rem;
-    margin-right: 2rem;
+    padding-bottom: 1rem;
 }
 
 @media only screen and (min-width: 600px){
