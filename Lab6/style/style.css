@@ -1,0 +1,55 @@
+html {
+    box-sizing: border-box;
+    margin: 0;
+	padding: 0;
+    border: 0;
+}
+
+*, 
+*:before, 
+*:after {
+  box-sizing: inherit;
+}
+
+.container {
+    width: 90%;
+}
+
+.row {
+    margin-top: 3rem;
+}
+
+.btn {
+    margin-top: 2rem;
+    width: 100%;
+}
+
+.table-gen {
+    margin-top: 3rem;
+}
+
+.message {
+    margin-bottom: 0.5rem;
+}
+
+.notification{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+    margin-right: 2rem;
+}
+
+@media only screen and (min-width: 600px){
+    .container {
+        width: 70%;
+    }
+}
+
+
+@media only screen and (min-width: 1024px){
+    .container {
+        width: 60%;
+    }
+}
+
+
