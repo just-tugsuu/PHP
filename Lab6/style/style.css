@@ -24,13 +24,11 @@ html {
     width: 100%;
 }
 
-.table-gen {
-    margin-top: 3rem;
+.table-gen{
+    padding-top: 3rem;
 }
 
-.message {
-    padding-bottom: 1rem;
-}
+
 
 @media only screen and (min-width: 600px){
     .container {
