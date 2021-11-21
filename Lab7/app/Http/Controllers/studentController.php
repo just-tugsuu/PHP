@@ -9,9 +9,9 @@ class studentController extends Controller
 
     public function getData() {
         $list = array(
-            array("B190920001", "Enkhtugs", "G", "19"),
-            array("B190920002", "Tuguldur", "A", "20"),
-            array("B190920003", "Baasanjav", "U", "21"));  
+            array("B190920001", "Энхтөгс", "Г", "19"),
+            array("B190920002", "Төгөлдөр", "А", "20"),
+            array("B190920003", "Билгүүн", "У", "21"));  
         return $list;
     }
     
@@ -21,7 +21,12 @@ class studentController extends Controller
     }
 
     public function studentDetails($studentCode) {
-        return view('studentDetail');
+        $data = $this->getData();
+        foreach($data as $student) {
+            if($student[0] === $studentCode){
+                return view('studentDetail', ["code" => $student[0], "ner" => $student[1], "ovog" => $student[2], "nas" => $student[3]]);       
+            }
+        }
     }
 
     
