@@ -27,4 +27,4 @@ Route::get("search", "App\Http\Controllers\studentController@search");
 /* Hoyerdugaar heseg */
 
 Route::get("account", "App\Http\Controllers\AccountTransaction@showAccounts");
-Route::get("transaction");
+Route::get("transaction", "App\Http\Controllers\AccountTransaction@makeTransaction");

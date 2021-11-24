@@ -16,6 +16,6 @@ class AccountTransaction extends Controller
     }
 
     public function makeTransaction() {
-        view("Transaction");
+        return view("account.Transaction");
     }
 }
