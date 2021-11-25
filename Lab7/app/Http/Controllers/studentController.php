@@ -20,6 +20,22 @@ class studentController extends Controller
         return view('studentList', ["students" => $student]);
     }
 
+    public function fetch(Request $request) {
+        $Studentdata = $this->getData();
+        $temp = [];
+        $inputValidation = $request->validate([
+            'studentCode' => ['bail', 'required', 'max:10'],
+        ]);
+        $studentCode = $request->input('studentCode');
+        foreach($Studentdata as $code) {
+            if($code[0] === $studentCode) {
+                array_push($temp, $code[0], $code[1], $code[2], $code[3]);
+                break;
+            }
+        }
+        return view("studentSearch", ["result" => $temp]);
+    }
+
     public function studentDetails($studentCode) {
         $data = $this->getData();
         foreach($data as $student) {

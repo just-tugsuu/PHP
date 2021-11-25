@@ -89,8 +89,14 @@
   .header {
     text-align: center;
   }
-  
-  
+
+  .block {
+    margin-top: 1.5rem;
+
+  }
+
+ 
+ 
   @media only screen and (min-width: 576px) {
     .col-sm-6{
       padding-top: 0rem;
@@ -149,5 +155,9 @@
   @media only screen and (min-width: 1400px){
     .CustomContainer{
       max-width: 1320px;
+    } 
+
+    .block{
+      font-size: 1.2rem;
     }
   }  

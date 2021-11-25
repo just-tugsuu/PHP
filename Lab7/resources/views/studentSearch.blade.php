@@ -53,17 +53,36 @@
              <h3> Оюутны кодоор хайх </h3>
             </div>
             <div class = "search-bar">
-              <form>
+              <form method = "POST" action="search">
+              <input type="hidden" name="_token" value="{{ csrf_token() }}">
                   <div class = "row">
                      
                       <div class = "col-sm">
-                       <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
+                       <input class="form-control" name = "studentCode" placeholder="Type to search...">
                       </div>
                       <div class = "col-sm-6">
                        <input name = "submit" type="submit" value = 'Хайх'class="btn btn-primary">
                       </div>
                   </div>
+                  <span class="block" style="color: #ff0033">
+                        @if($errors->any())
+                        @foreach ($errors->all() as $error)
+                           {{ $error }}
+                           @endforeach
+                        @endif
+                  </span>
               </form>
+              <p class = "block"> 
+               @if(isset($result))
+                  @if(count($result) > 0)
+                     @for($i = 0; $i < count($result); $i++)
+                         {{$result[$i]}} 
+                     @endfor
+                   @else 
+                    <p> Хайлт олдсонгүй </p>
+                 @endif
+               @endif
+              </p>
           </div>
           </div>
         </div>

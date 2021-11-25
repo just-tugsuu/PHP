@@ -51,30 +51,36 @@
             <div class = "header">
              <h3> Гүйлгээ үүсгэх </h3>
             </div>
-            <form class = "form">
+            <form class = "form" method = "POST" action = "transaction">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
               <div class="mb-3">
                 <label class="form-label">Шилжүүлэх данс</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name = "AccountNum">
               </div>
 
               <div class="mb-3">
                 <label class="form-label">Хүлээн авах данс</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name = "AccountTo">
               </div>
 
               <div class="mb-3">
                 <label class="form-label">Гүйлгээний дүн</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name = "amount">
+                <!-- <span class="block" style="color: #ff0033">Гүйлгээний дүн хоосон байна</span> -->
               </div>
 
               <div class="mb-3">
                 <label class="form-label">Гүйлгээний утга</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name = "transactionDesc">
+                <!-- <span class="block" style="color: #ff0033">Гүйлгээний утга хоосон байна</span> -->
               </div>
 
               <div class = "mb-3">
                 <input name = "submit" type="submit" value = 'Гүйлгээ хийх' class="btn btn-primary">
-              </div>
+              </div>  
+              @if(isset($acc))
+                <p> {{$acc}}</p>
+              @endif
             </form>
           </div>
         </div>
