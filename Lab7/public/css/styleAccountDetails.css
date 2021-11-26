@@ -60,32 +60,9 @@
     padding-top: 1rem;
     padding-bottom: 1rem;
   }
-  
+      
   .header {
     border-bottom: 1px solid #E5E5E5;
-  }
-
-  .form {
-    margin-top: 1.5rem;
-  }
-  
-  .btn {
-    width: 100%;
-  }
-
-  .success_message {
-    padding-top: 1rem;
-    text-align: center;
-    font-size: 1rem;
-  }
-
-
-
-  @media only screen and (min-width: 300px){
-    .CustomContainer{
-      max-width: 640px;
-      padding: 0rem 4rem;
-    }
   }
   
   @media only screen and (max-width: 799px){
@@ -97,19 +74,15 @@
     .header {
       text-align: center;
     }
-
+  
     .col-sm-9{
       width: 100%;
       box-shadow: 0 0 0 0;
-
     }
-
-    .CustomContainer{
-      max-width: 1024px;
-    }
-
+   
   }
-    
+  
+  
   @media only screen and (min-width: 800px){
     .col-1{
       width: 8rem;
@@ -118,41 +91,18 @@
     .col-sm-9{
       margin: 4rem auto;
     }
-
-    .CustomContainer{
-      max-width: 960px;
-    }
-
-    .row{
-      width: 100%;
-    }
     
-    .CustomContainer{
-      padding: 0rem;
-    }
-
   }
-
+  
   @media only screen and (min-width: 1200px) {
   
     .CustomContainer{
       max-width: 1140px;
     }
-
-    .mb-3 > label {
-      font-size: 1.2rem;
-    }
   }
-
+  
   @media only screen and (min-width: 1400px){
     .CustomContainer{
       max-width: 1320px;
     }
-  }
-  
-  
-  
-  
-  
-  
-  
+  }  

@@ -67,8 +67,8 @@
            @if(count($Accounts) >= 1)
               @foreach($Accounts as $data)
               <tr>
-                  <th scope="row">{{$data->id}}</th>
-                  <td>{{$data->account_number}}</td>
+                  <th scope="row"> {{$data->id}}</th>
+                  <td> <a href="account/{{ $data->account_number }}"> {{$data->account_number}} </a> </td>
                   <td>{{$data->account_name}}</td>
                   <td>{{$data->account_balance}}</td>
               </tr>

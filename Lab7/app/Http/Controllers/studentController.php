@@ -23,9 +23,15 @@ class studentController extends Controller
     public function fetch(Request $request) {
         $Studentdata = $this->getData();
         $temp = [];
-        $inputValidation = $request->validate([
-            'studentCode' => ['bail', 'required', 'max:10'],
-        ]);
+        // $inputValidation = $request->validate([
+        //     'studentCode' => ['bail', 'required', 'max:10'],
+
+        // ]);
+        $this->validate($request, 
+            ['studentCode' => 'required|max:10'],
+            ['studentCode.required' => 'Оюутны код хоосон байж байна',
+             'studentCode.max' => '10 тэмдэгтээс илүү байж болохгүй']
+        );
         $studentCode = $request->input('studentCode');
         foreach($Studentdata as $code) {
             if($code[0] === $studentCode) {

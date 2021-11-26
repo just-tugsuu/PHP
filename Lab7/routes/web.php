@@ -29,4 +29,5 @@ Route::get("account", "App\Http\Controllers\AccountTransaction@showAccounts");
 Route::get("/transaction",function(){
     return view("account.Transaction");
 });
+Route::get("account/{id}", "App\Http\Controllers\AccountTransaction@accountDetails");
 Route::post("transaction", "App\Http\Controllers\AccountTransaction@doTransaction");

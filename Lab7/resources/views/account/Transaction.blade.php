@@ -56,9 +56,14 @@
                 <label class="form-label">Шилжүүлэх данс</label>
                 <input type="text" class="form-control" name = "AccountNum">
                 <span class="block" style="color: #ff0033">
+              
                 @foreach($errors->get('AccountNum') as $message) 
-                {{$message}}
+                       {{$message}}
                 @endforeach
+
+                @if(isset($accountError)) 
+                    <p>  {{$accountError}} </p>
+                @endif
                 </span>
               </div>
 
@@ -69,6 +74,11 @@
                 @foreach($errors->get('AccountTo') as $message) 
                 {{$message}}
                 @endforeach
+
+                @if(isset($recieverError)) 
+                    <p>  {{$recieverError}} </p>
+                @endif
+
                 </span>
               </div>
 
@@ -79,6 +89,10 @@
                 @foreach($errors->get('Amount') as $message) 
                 {{$message}}
                 @endforeach
+
+                @if(isset($balance)) 
+                    <p>  {{$balance}} </p>
+                @endif
                 </span>
               </div>
               <div class="mb-3">
@@ -94,9 +108,15 @@
               <div class = "mb-3">
               {{csrf_field()}}
                 <input name = "submit" type="submit" value = 'Гүйлгээ хийх' class="btn btn-primary">
+                @if(session()->has('success'))
+                <div class = "success_message">
+                  <p>   {{ session()->get('success') }} </p> 
+                </div>
+                @endif
               </div>  
             </form>
           </div>
+
         </div>
        </div>
 </body>
