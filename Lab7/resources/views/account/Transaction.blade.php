@@ -51,36 +51,50 @@
             <div class = "header">
              <h3> Гүйлгээ үүсгэх </h3>
             </div>
-            <form class = "form" method = "POST" action = "transaction">
-            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <form class = "form" action="transaction" method = "post">  
               <div class="mb-3">
                 <label class="form-label">Шилжүүлэх данс</label>
                 <input type="text" class="form-control" name = "AccountNum">
+                <span class="block" style="color: #ff0033">
+                @foreach($errors->get('AccountNum') as $message) 
+                {{$message}}
+                @endforeach
+                </span>
               </div>
 
               <div class="mb-3">
                 <label class="form-label">Хүлээн авах данс</label>
                 <input type="text" class="form-control" name = "AccountTo">
+                <span class="block" style="color: #ff0033">
+                @foreach($errors->get('AccountTo') as $message) 
+                {{$message}}
+                @endforeach
+                </span>
               </div>
 
               <div class="mb-3">
                 <label class="form-label">Гүйлгээний дүн</label>
-                <input type="text" class="form-control" name = "amount">
-                <!-- <span class="block" style="color: #ff0033">Гүйлгээний дүн хоосон байна</span> -->
+                <input type="text" class="form-control" name = "Amount">
+                <span class="block" style="color: #ff0033">
+                @foreach($errors->get('Amount') as $message) 
+                {{$message}}
+                @endforeach
+                </span>
               </div>
-
               <div class="mb-3">
                 <label class="form-label">Гүйлгээний утга</label>
                 <input type="text" class="form-control" name = "transactionDesc">
-                <!-- <span class="block" style="color: #ff0033">Гүйлгээний утга хоосон байна</span> -->
+                <span class="block" style="color: #ff0033">
+                @foreach($errors->get('transactionDesc') as $message) 
+                {{$message}}
+                @endforeach
+                </span>
               </div>
 
               <div class = "mb-3">
+              {{csrf_field()}}
                 <input name = "submit" type="submit" value = 'Гүйлгээ хийх' class="btn btn-primary">
               </div>  
-              @if(isset($acc))
-                <p> {{$acc}}</p>
-              @endif
             </form>
           </div>
         </div>

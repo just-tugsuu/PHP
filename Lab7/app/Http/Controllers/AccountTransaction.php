@@ -13,14 +13,26 @@ class AccountTransaction extends Controller
         return view("account.Account", ['Accounts' => $Accounts]);
     }
     
-    public function calculTransaction(Request $request) {
-        // get data from database
+
+    public function doTransaction(Request $request) {
+        $inputValidation = $request->validate([
+            'AccountNum' => ['bail', 'required', 'numeric'],
+            'AccountTo' => ['bail', 'required', 'numeric'],
+            'Amount' => ['bail', 'required', 'numeric'],
+            'transactionDesc' => ['bail', 'required']
+        ]);
+        $sender = $request->AccountNum;
+        $reciever = $request->AccountTo;
+        $amount = $request->Amount;
+        $describtion = $request->transactionDesc; 
+
+        // DB::table('test')->insert([
+        //     'value' => $sender
+        // ]);
+
         
-        $AccountNumber = $request->input('AccountNum');
-        return view("account.Transaction", ["acc" => $AccountNumber]);
+
+        return view("account.Transaction", compact('sender'));
     }
 
-    public function makeTransaction() {
-        return view("account.Transaction");
-    }
 }

@@ -17,15 +17,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-/* Negdugeer heseg */
 
 Route::get("student", "App\Http\Controllers\studentController@read");
 Route::get("student/{studentCode}", "App\Http\Controllers\studentController@studentDetails");
 Route::get("search", "App\Http\Controllers\studentController@search");
 Route::post("search", "App\Http\Controllers\studentController@fetch");
 
-/* Hoyerdugaar heseg */
+
 
 Route::get("account", "App\Http\Controllers\AccountTransaction@showAccounts");
-Route::get("transaction", "App\Http\Controllers\AccountTransaction@makeTransaction");
-Route::post("transaction", "App\Http\Controllers\AccountTransaction@calculTransaction");
+Route::get("/transaction",function(){
+    return view("account.Transaction");
+});
+Route::post("transaction", "App\Http\Controllers\AccountTransaction@doTransaction");
