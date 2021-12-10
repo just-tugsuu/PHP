@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FlightController;
+use App\Http\Controllers\BookingController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Flight
 Route::get('searchflight', [FlightController::class, "SearchScreen"]);
-
 Route::post('searchflight', [FlightController::class, "getData"]);
+
+// Flight Booking
+
+Route::get('/booking/{id}', [BookingController::class, "BookingScreen"]);

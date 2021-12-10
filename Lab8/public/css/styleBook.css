@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body{
+    font-family: 'Ubuntu Mono', monospace;
+  }
+  
+
+  a {
+    text-decoration: inherit;
+    color: inherit;
+    cursor: auto;
+  }
+  
+  .container{
+    display: inline;
+  }
+  
+  .col-sm-9 {
+    /* margin: 4rem auto;  */
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  }
+  
+  .header {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  
+  .list {
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+  }
+  
+  .list > p {
+    font-size: 1.3rem;
+  }
+  
+  .header {
+    border-bottom: 1px solid #E5E5E5;
+  }
+
+  .row {
+      margin-top: 1.5rem;
+  }
+
+  .message {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .message svg {
+    margin-top: 0.2rem;
+  }
+
+  .message > p {
+    margin-bottom: 2rem;
+    margin-left: 0.5rem;
+  }
+
+
+  .btn-container {
+      margin-top: 1.5rem;
+      padding-bottom: 2rem;
+  }
+  
+  @media only screen and (max-width: 799px){
+    .col-1{
+      display: none;
+      visibility: hidden;
+    }
+  
+    .header {
+      text-align: center;
+    }
+  
+    .list {
+      padding-left: 2rem;
+    }
+    .col-sm-9{
+      width: 100%;
+      box-shadow: 0 0 0 0;
+    }
+   
+  }
+  
+  
+  @media only screen and (min-width: 800px){
+    .col-1{
+      width: 8rem;
+      
+    }
+    .col-sm-9{
+      margin: 4rem auto;
+    }
+    
+  }
+  
+  @media only screen and (min-width: 1200px) {
+  
+    .CustomContainer{
+      max-width: 1140px;
+    }
+  }
+  
+  @media only screen and (min-width: 1400px){
+    .CustomContainer{
+      max-width: 1320px;
+    }
+  }  

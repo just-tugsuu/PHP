@@ -26,6 +26,8 @@ class FlightController extends Controller
         $responseBody = json_decode($response->getBody(), true);
         return view("searchFlight", compact('responseBody'));
     }
+
+
     public function SearchScreen() {
         return view("searchFlight");
     }
