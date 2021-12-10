@@ -36,7 +36,7 @@ class BookingController extends Controller
             $response = Http::withHeaders($headers)->post($apiURL, $InputValues);
             $statusCode = $response->status();
             $response = json_decode($response->getBody(), true);
-            return Redirect::back()->with("success", $response);
+            return Redirect::back()->with("success", $response['id']);
     }
 
     public function BookingScreen($id) {
