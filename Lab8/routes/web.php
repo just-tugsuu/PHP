@@ -23,5 +23,5 @@ Route::get('searchflight', [FlightController::class, "SearchScreen"]);
 Route::post('searchflight', [FlightController::class, "getData"]);
 
 // Flight Booking
-
 Route::get('/booking/{id}', [BookingController::class, "BookingScreen"]);
+Route::post('/booking/{id}', [BookingController::class, "fetch"]);

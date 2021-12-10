@@ -33,7 +33,6 @@ class FlightController extends Controller
         // showError or Succuss message depends on status Code
         $statusCode = $response->status();
         $responseBody = json_decode($response->getBody(), true);
-        // dd($request->departDate);
         return view("searchFlight", compact('responseBody'));
     }
 

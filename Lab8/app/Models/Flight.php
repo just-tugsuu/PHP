@@ -12,8 +12,5 @@ class Flight extends Model
     protected $table = "flights";
     protected $primaryKey = "flightNumber";
     public $timestamps = false;
-    public function setDateAttribute( $value ) {
-        $this->attributes['date'] = (new Carbon($value))->format('d/m/y');
-      }
     
 }
