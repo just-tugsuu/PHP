@@ -24,33 +24,33 @@
                     <div class="row">
                         <div class="col">
                             <label> Хаанаас: </label>
-                            <select class="form-select" aria-label="Default select example">
-                                <option value="-сонго-">Departure City</option>
-                                <option value="Инч-СМ">UBN</option>
-                                <option value="Бээр-КМ">MEL</option>
-                                <option value="Паунд-ГРАМ">HKG</option>
+                            <select class="form-select" name = "departure">
+                                <option value="Departure">Departure City</option>
+                                <option value="UBN">UBN</option>
+                                <option value="MEL">MEL</option>
+                                <option value="HKG">HKG</option>
                             </select>
                         </div>
                         <div class="col">
                             <label for="text"> Нисэх өдөр: </label>
-                            <input type="date" name="pet_birth" class="form-control">
+                            <input type="date" name="departDate" class="form-control">
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col">
                             <label> Хаанаас: </label>
-                            <select class="form-select" aria-label="Default select example">
-                                <option value="-сонго-">Arrival</option>
-                                <option value="Инч-СМ">UBN</option>
-                                <option value="Бээр-КМ">MEL</option>
-                                <option value="Паунд-ГРАМ">HKG</option>
+                            <select class="form-select" name = "arrival">
+                                <option value = "Arrival">Arrival</option>
+                                <option value="UBN">UBN</option>
+                                <option value="MEL">MEL</option>
+                                <option value="HKG">HKG</option>
                             </select>
                         </div>
 
                         <div class="col">
                             <label> Хүний тоо: </label>
-                            <input type="text" name="pet_owner" class="form-control" />
+                            <input type="text" name="passengerNumber" class="form-control" />
                         </div>
                     </div>
 
@@ -78,7 +78,7 @@
                     <th scope="row" id ="row">{{ $data['flightNumber']; }}</th>
                     <td> {{ $data['departureAirport']; }}</td>
                     <td> {{ $data['arraivalAirport']; }}</td>
-                    <td> {{ $data['passengerNumber']; }}</td>
+                    <td> {{ $data['departureDate']; }}</td>
                     <td> <button type="button"  id ="btn_book" class="btn btn-warning"> <a href = "booking/{{$data['flightNumber']}}"> Захиалах </a> </button></td>
                 </tr>
                 @endforeach

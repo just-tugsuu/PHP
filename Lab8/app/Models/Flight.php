@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 
 class Flight extends Model
 {
@@ -11,5 +12,8 @@ class Flight extends Model
     protected $table = "flights";
     protected $primaryKey = "flightNumber";
     public $timestamps = false;
+    public function setDateAttribute( $value ) {
+        $this->attributes['date'] = (new Carbon($value))->format('d/m/y');
+      }
     
 }
