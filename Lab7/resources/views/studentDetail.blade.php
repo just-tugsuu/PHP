@@ -48,31 +48,31 @@
           </div>
       </div>
        </div>
-       <div class = "col-sm-9">
-         <div class = "header">
-          <h3> {{ $code }} </h3>
-         </div>
-         <table class="table table-sm">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Оюутны код</th>
-                  <th scope="col">Оюутны нэр</th>
-                  <th scope="col">Оюутны овог</th> 
-                  <th scope="col">Оюутны нас</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>{{ $code }}</td>
-                  <td>{{ $ner }}</td>
-                  <td>{{ $ovog }}</td>
-                  <td>{{ $nas }}</td>
-                </tr>
-                </tr>
-            </table>    
-       </div>
+        <div class = "col-sm-9">
+          <div class = "header">
+            <h3> {{ $code }} </h3>
+          </div>
+          <table class="table table-sm">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Оюутны код</th>
+                    <th scope="col">Оюутны нэр</th>
+                    <th scope="col">Оюутны овог</th> 
+                    <th scope="col">Оюутны нас</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>{{ $code }}</td>
+                    <td>{{ $ner }}</td>
+                    <td>{{ $ovog }}</td>
+                    <td>{{ $nas }}</td>
+                  </tr>
+                  </tr>
+              </table>    
+        </div>
      </div>
     </div>
    

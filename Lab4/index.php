@@ -190,7 +190,7 @@
                                </table>
                               </div>';
                             $result->free_result();
-                    }
+                    }   
                     else {
                           emptyTable();
                     }
